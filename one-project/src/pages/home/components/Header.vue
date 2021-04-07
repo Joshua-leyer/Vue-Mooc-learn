@@ -7,10 +7,12 @@
             <span class="iconfont">&#xe615;</span>
             请输入内容或地名
         </div>
-        <div class="header-right">
-            {{ this.city }}
-            <span class="iconfont arrow-icon">&#xe60a;</span>
-        </div>
+        <router-link to='/city'>
+            <div class="header-right">
+                {{ this.city }}
+                <span class="iconfont arrow-icon">&#xe60a;</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -53,6 +55,7 @@ export default {
             width 1.24rem
             float: right
             text-align: center
+            color: #fff
             .arrow-icon
                 font-size: .24rem
 </style>
