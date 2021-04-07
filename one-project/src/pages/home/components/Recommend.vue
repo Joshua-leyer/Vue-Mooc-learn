@@ -5,7 +5,7 @@
       <router-link
         tag="li"
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
         :to="'/detail/' + item.id"
       >
@@ -28,17 +28,17 @@ export default {
   },
   data() {
       return {
-        recommendList: [{
-            id:'001',
-            imgUrl:'https://imgs.qunarzz.com/p/p67/1512/a2/0ebfcd965b9391f7.jpg_256x160_04d5813d.jpg',
-            title: '大连理工老高',
-            desc: '浪漫的大连首站,,,,'
-        }, {
-            id: '002',
-            imgUrl:'https://img1.qunarzz.com/sight/p0/1505/f0/f04df22f36d4dc25.water.jpg_256x160_e750d6ec.jpg',
-            title:'普京大帝',
-            desc: '普京骑大熊'
-        }]
+        // recommendList: [{
+        //     id:'001',
+        //     imgUrl:'https://imgs.qunarzz.com/p/p67/1512/a2/0ebfcd965b9391f7.jpg_256x160_04d5813d.jpg',
+        //     title: '大连理工老高',
+        //     desc: '浪漫的大连首站,,,,'
+        // }, {
+        //     id: '002',
+        //     imgUrl:'https://img1.qunarzz.com/sight/p0/1505/f0/f04df22f36d4dc25.water.jpg_256x160_e750d6ec.jpg',
+        //     title:'普京大帝',
+        //     desc: '普京骑大熊'
+        // }]
       }
   }
 }
