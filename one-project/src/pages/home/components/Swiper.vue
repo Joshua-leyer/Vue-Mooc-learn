@@ -2,9 +2,9 @@
     <div class="wrapper">
         <swiper :options="swiperOption" >
             <!-- slides 这里有bug-->
-            <swiper-slide v-for="item in swiperList" :key="item.id">
+            <!-- <swiper-slide v-for="item in swiperList" :key="item.id">
                 <img class="swiper-img" :src="item.imgUrl" alt="">
-            </swiper-slide>
+            </swiper-slide> -->
 
             <!-- 这里写的时候有一个bug, src链接方式不知道怎么弄 -->
             <!-- 这里的路径不知道怎么了,chrome 看的路径和这里明显不一样 -->
