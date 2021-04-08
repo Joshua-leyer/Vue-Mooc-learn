@@ -1,7 +1,11 @@
 <template>
     <div>
         <city-header></city-header>
+<<<<<<< HEAD
         <city-search></city-search>
+=======
+        <city-search :cities="cities"></city-search>
+>>>>>>> city-search-logic
         <city-list :cities="cities" :hot="hotCities" :letter="letter"></city-list>
         <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
     </div>
