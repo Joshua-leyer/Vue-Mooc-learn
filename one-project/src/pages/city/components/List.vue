@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="area" v-for="(item, key) of cities" :key="key">
+      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list">
           <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">
@@ -40,10 +40,23 @@ import Bscroll from 'better-scroll'
         name: 'CityList',
         props: {
             hot: Array,
-            cities: Object
+            cities: Object,
+            letter: String
         },
         mounted() { //这个必须是页面元素超出了一个屏幕了,才能看到效果
             this.scroll = new Bscroll(this.$refs.wrapper)
+        },
+        //本组件 监听letter变量, 每次改变都运行函数
+        watch: {
+            letter() {
+                if (this.letter) {
+                    // let element = this.$refs[this.letter]   //教程讲,这里拿到是个数组, 由于数据存储的时候abc当做数组存储在里面
+                    // 而绑定ref时候是key 一个变量,拿到的就直接
+                    let element = this.$refs[this.letter][0]
+                    this.scroll.scrollToElement(element)
+                }
+                console.log(this.letter)
+            }
         }
     }
 </script>
