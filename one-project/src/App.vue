@@ -1,8 +1,12 @@
 <template>
   <div id="app">
 
-    <!-- 现实的是当前路由地址对应的内容 -->
-    <router-view />
+    <!--vue自带的 标签-->
+     <keep-alive> 
+       <!-- 现实的是当前路由地址对应的内容 -->
+      <router-view />
+    </keep-alive>
+    
   </div>
 </template>
 

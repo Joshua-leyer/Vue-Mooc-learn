@@ -28,6 +28,9 @@ new Vue({
   router,
   //使用Vuex
   store,
+  meta: {
+    keepAlive: true
+  },
   components: { App },
   template: '<App/>'
 })
