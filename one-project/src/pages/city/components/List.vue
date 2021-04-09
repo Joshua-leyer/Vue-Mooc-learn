@@ -40,7 +40,7 @@ import { mapMutations, mapState} from 'vuex'
 
     export default {  
         name: 'CityList',
-        props: {
+        props: { 
             hot: Array,
             cities: Object,
             letter: String
@@ -78,7 +78,9 @@ import { mapMutations, mapState} from 'vuex'
           ...mapMutations(['changeCity'])
         },
         mounted() { //这个必须是页面元素超出了一个屏幕了,才能看到效果
-            this.scroll = new Bscroll(this.$refs.wrapper)
+            this.scroll = new Bscroll(this.$refs.wrapper, {
+              click: true //解决移动以后不能点击的情况
+            })
             
         },
     }

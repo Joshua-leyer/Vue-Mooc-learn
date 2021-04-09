@@ -57,7 +57,7 @@
                         if (index >= 0 && index < this.letters.length) {
                             this.$emit('change', this.letters[index])
                         }
-                    }, 16)
+                    }, 8)
                     // console.log(this.$refs['A'] instanceof Array) //true
                     // console.log(typeof this.$refs)  //Object
                     // let startY = this.$refs['A'][0].offsetTop

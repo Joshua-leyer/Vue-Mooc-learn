@@ -51,13 +51,8 @@ export default {
             }
         }
     },
-    created () {
-
-        console.log(1)
-    },
     mounted() {
         console.log('mounted')
-
         this.lastCity = this.city
         this.getHomeInfo()
     },
