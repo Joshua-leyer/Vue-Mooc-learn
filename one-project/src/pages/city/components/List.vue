@@ -6,7 +6,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{ this.currentCity }}</div>
           </div>
         </div>
       </div>
@@ -14,16 +14,16 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item in hot" :key="item.id">
+          <div class="button-wrapper" v-for="item in hot" :key="item.id" @click="handleCityClick(item.name)">
             <div class="button">{{ item.name }}</div>
           </div>
         </div>
       </div>
 
-      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
+       <div class="area" v-for="(item, key) of cities" :key="key" :ref="key" >
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">
+          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id" @click="handleCityClick(innerItem.name)">
               {{ innerItem.name }}
           </div>
         </div>
@@ -36,6 +36,8 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations, mapState} from 'vuex'
+
     export default {  
         name: 'CityList',
         props: {
@@ -43,8 +45,10 @@ import Bscroll from 'better-scroll'
             cities: Object,
             letter: String
         },
-        mounted() { //这个必须是页面元素超出了一个屏幕了,才能看到效果
-            this.scroll = new Bscroll(this.$refs.wrapper)
+        computed: {
+          ...mapState({
+            currentCity: 'city'
+          })
         },
         //本组件 监听letter变量, 每次改变都运行函数
         watch: {
@@ -57,7 +61,26 @@ import Bscroll from 'better-scroll'
                 }
                 console.log(this.letter)
             }
-        }
+        },
+        methods: {
+          handleCityClick (city) {
+            console.log(city)
+            //这里只能是触发一个changeCity事件,并没有直接修改内容
+            // this.$store.dispatch('changeCity', city)
+            // 这里直接commit修改state种的内容也可以
+            // this.$store.commit('changeCity', city)
+            
+            //下面做了函数的映射,就可以这样用了
+            this.changeCity(city)
+
+            this.$router.push('/')
+          },
+          ...mapMutations(['changeCity'])
+        },
+        mounted() { //这个必须是页面元素超出了一个屏幕了,才能看到效果
+            this.scroll = new Bscroll(this.$refs.wrapper)
+            
+        },
     }
 </script>
 

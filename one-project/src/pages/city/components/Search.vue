@@ -7,7 +7,7 @@
         <ul>
             <li 
                 class="search-item border-bottom" 
-                v-for="item in list" :key="item.id">
+                v-for="item in list" :key="item.id" @click="handleCityClick(item.name)">
                 {{ item.name }}
             </li>
             <!-- 这里用v-show来实现 提示信息的现实 -->
@@ -21,7 +21,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
-
+import {mapMutations} from 'vuex'
     export default {
         name: 'CitySearch',
         props: {
@@ -62,6 +62,20 @@ import Bscroll from 'better-scroll'
                     this.list = result
                 }, 100)
             }
+        },
+        methods: {
+            handleCityClick (city) {
+                //这里只能是触发一个changeCity事件,并没有直接修改内容
+                // this.$store.dispatch('changeCity', city)
+                // 这里直接commit修改state种的内容也可以
+            // this.$store.commit('changeCity', city)
+                //vue-router 的编程式导航,说白的就是router-link的js方法
+                // 类比a标签和js中的window.location()方法直接通过js修改链接,跳转
+
+                this.changeCity(city)
+                this.$router.push('/')
+            },
+            ...mapMutations(['changeCity'])
         },
         mounted() {
             //添加滚动功能
