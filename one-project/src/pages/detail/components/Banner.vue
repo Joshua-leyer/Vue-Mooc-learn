@@ -1,7 +1,6 @@
 <template>
     <div>
-
-
+        
     <div class="banner" @click="handleBannerClick">
         <img class="banner-img" src="https://img1.qunarzz.com/vs_ceph_vs_tts/fafe9394-8e5f-4ca9-b284-0cde9e516723.jpg_r_640x420x95_f5bdfb68.jpg" alt="">
         <div class="banner-info">
