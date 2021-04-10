@@ -14,7 +14,7 @@ import HomeSwiper from './components/Swiper'
 import HomeIcons  from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import axios from 'axios'
-import { mapState} from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
     name: 'Home',

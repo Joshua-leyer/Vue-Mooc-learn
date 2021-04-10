@@ -48,7 +48,8 @@
         display: flex
         flex-direction: column
         justify-content: center
-        z-index: 24
+        //这里的数值要比header.vue中的 header-fixed 内容的z-index大, 自己可以试一试不然会有什么效果
+        z-index: 425
         position: fixed
         left: 0
         right: 0

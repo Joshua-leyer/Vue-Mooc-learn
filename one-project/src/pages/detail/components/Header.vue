@@ -70,6 +70,7 @@
 
 @import '~style/varibles.styl'
     .header-fixed
+        z-index: 424
         position: fixed
         top: 0
         left: 0
