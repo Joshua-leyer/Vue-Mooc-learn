@@ -40,10 +40,13 @@
             }
         },
         //这里能使用,必须使用keep-alive 标签
-        /// ?? 查的是讲, 当网页第一次进入就会执行,,换成mounted也可以.
+        /// ?? 查的是讲, 当网页第一次进入就会执行,,监听事件写在 mounted也可以.
         activated () { 
             //监听网页滚动事件
             window.addEventListener('scroll', this.handleScroll)
+        },
+        deactivated() {
+            window.removeEventListener('scroll', this.handleScroll)
         }
     }
 </script>
