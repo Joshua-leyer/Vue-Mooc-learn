@@ -25,7 +25,10 @@
         },
         methods: {
             handleScroll() {
-                let top = document.documentElement.scrollTop
+                let top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+
+
+
                 // top > 60 ? this.showAbs = false : this.showAbs = true
                 if (top > 60) {
                     let opacity = top / 140
@@ -39,13 +42,14 @@
                 // console.log(document.documentElement.scrollTop)
             }
         },
-        //这里能使用,必须使用keep-alive 标签
+        //这里能使用,必须使用keep-alive 标签 后面为了解决页面跳转重新ajax请求,
+        // 用了exclude="Detail"  所以这俩函数就不能用了
         /// ?? 查的是讲, 当网页第一次进入就会执行,,监听事件写在 mounted也可以.
-        activated () { 
+        mounted () { 
             //监听网页滚动事件
             window.addEventListener('scroll', this.handleScroll)
         },
-        deactivated() {
+        destroyed () {
             window.removeEventListener('scroll', this.handleScroll)
         }
     }
