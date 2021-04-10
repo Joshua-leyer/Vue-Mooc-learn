@@ -2,8 +2,9 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
+      <!--  tag 属性 解决默认渲染是a标签,会有a标签样式的问题 -->
       <router-link
-        tag="li"
+        tag="li" 
         class="item border-bottom"
         v-for="item of list"
         :key="item.id"
