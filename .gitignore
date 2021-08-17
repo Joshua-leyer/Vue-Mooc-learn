@@ -1,0 +1,14 @@
+.DS_Store
+one-project/dist/
+one-project/npm-debug.log*
+one-project/yarn-debug.log*
+one-project/yarn-error.log*
+one-project/node_modules/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
