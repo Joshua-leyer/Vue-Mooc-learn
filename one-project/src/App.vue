@@ -1,8 +1,12 @@
 <template>
   <div id="app">
 
-    <!-- 现实的是当前路由地址对应的内容 -->
-    <router-view />
+    <!--vue自带的 标签 , 出了Detail页面其他页面都会被缓存-->
+     <keep-alive exclude="Detail"> 
+       <!-- 现实的是当前路由地址对应的内容 -->
+      <router-view />
+    </keep-alive>
+    
   </div>
 </template>
 

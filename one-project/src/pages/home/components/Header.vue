@@ -7,16 +7,29 @@
             <span class="iconfont">&#xe615;</span>
             请输入内容或地名
         </div>
-        <div class="header-right">
-            城市
-            <span class="iconfont arrow-icon">&#xe60a;</span>
-        </div>
+        <router-link to='/city'>
+            <div class="header-right">
+                {{ this.city }}
+                <span class="iconfont arrow-icon">&#xe60a;</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
-<script>
+<script> 
+//没搞明白这个是如何拿到数据的??? >done　keyword  :mapState 辅助函数  , vuex官网有提到
+import { mapState } from 'vuex'
+
 export default {
-    name: 'HomeHeader'
+
+    name: 'HomeHeader',
+    // props: {
+    //     city: String
+    // }
+    // 使用映射的
+    computed: {
+        ...mapState(['city'])
+    }
 }
 </script>
 
@@ -47,9 +60,13 @@ export default {
             border-radius: .1rem
             color: #ccc
         .header-right
-            width 1.24rem
+            // 这里是处理选择地名过长的一个处理
+            min-width 1.24rem
+            padding: 0 .1rem 
+
             float: right
             text-align: center
+            color: #fff
             .arrow-icon
                 font-size: .24rem
 </style>
