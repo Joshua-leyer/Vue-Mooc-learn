@@ -2,9 +2,9 @@
     <div class="wrapper">
         <swiper :options="swiperOption" >
             <!-- slides 这里有bug-->
-            <swiper-slide v-for="item in swiperList" :key="item.id">
-                <img class="swiper-img" :src="item.imgUrl" alt="">
-            </swiper-slide>
+            <!-- <swiper-slide v-for="item in swiperList" :key="item.id">
+                <img class="swiper-img" :src="item.imgUrl" alt="" >
+            </swiper-slide> -->
 
             <!-- 这里写的时候有一个bug, src链接方式不知道怎么弄 -->
             <!-- 这里的路径不知道怎么了,chrome 看的路径和这里明显不一样 -->
@@ -29,13 +29,13 @@ export default {
             },
             swiperList: [{
                 id: '001',
-                imgUrl: 'style/swiper-1.jpg'
+                imgUrl: '~style/swiper-1.jpg'
             },{
                 id: '002',
-                imgUrl: 'style/swiper-2.jpg'
+                imgUrl: '~style/swiper-2.jpg'
             },{
                 id: '003',
-                imgUrl: 'style/swiper-3.jpg'
+                imgUrl: '~style/swiper-3.jpg'
             }]
         }
     }
@@ -44,8 +44,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+    .wrapper 
+        height: 100px;
     .wrapper >>> .swiper-pagination-bullet-active
         background: #fff
     .swiper-img
         width: 100%
+        height: 240px
 </style>
